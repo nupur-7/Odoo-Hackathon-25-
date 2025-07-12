@@ -1,4 +1,6 @@
+
 import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import './QuestionsPage.css';
 
 const DUMMY_QUESTIONS = [
@@ -38,6 +40,28 @@ const DUMMY_QUESTIONS = [
     author: 'Mike Johnson',
     askedAt: '1 day ago',
   },
+  {
+  id: 4,
+  title: 'CSS Grid vs Flexbox: When to use which?',
+  description: 'Can someone explain the differences between CSS Grid and Flexbox with examples?',
+  tags: ['CSS', 'Grid', 'Flexbox'],
+  votes: 31,
+  answers: 12,
+  views: 789,
+  author: 'Sarah Wilson',
+  askedAt: '2 days ago',
+},
+{
+  id: 5,
+  title: 'Python dictionary comprehension with nested conditions',
+  description: 'How can I create a dictionary with multiple conditions in a clean way?',
+  tags: ['Python', 'Dictionary'],
+  votes: 5,
+  answers: 2,
+  views: 89,
+  author: 'Alex Chen',
+  askedAt: '3 hours ago',
+}
 ];
 
 const TABS = ['Newest', 'Unanswered', 'Most Voted', 'Most Answers'];
@@ -83,7 +107,12 @@ export default function QuestionsPage() {
 
         <button className="ask-btn">Ask Question</button>
         <span className="icon">🔔</span>
-        <span className="icon">👤</span>
+        <span className="icon" style={{marginLeft: '16px', display: 'inline-flex', alignItems: 'center'}}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="4" fill="#4B2991"/>
+            <path d="M4 20c0-2.761 3.582-5 8-5s8 2.239 8 5" fill="#4B2991"/>
+          </svg>
+        </span>
       </header>
 
       {/* Tabs */}
@@ -107,40 +136,42 @@ export default function QuestionsPage() {
       {/* Questions List */}
       <main className="questions-list">
         {filtered.map((q) => (
-          <div key={q.id} className="question-card">
-            <div className="metrics">
-              <div className="metric">
-                <div className="metric-value">↑ {q.votes}</div>
-                <div className="metric-label">votes</div>
+          <Link to={`/question/${q.id}`} key={q.id} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className="question-card">
+              <div className="metrics">
+                <div className="metric">
+                  <div className="metric-value">↑ {q.votes}</div>
+                  <div className="metric-label">votes</div>
+                </div>
+                <div className="metric answered">
+                  <div className="metric-value">{q.answers}</div>
+                  <div className="metric-label">answers</div>
+                </div>
+                <div className="metric">
+                  <div className="metric-value">{q.views}</div>
+                  <div className="metric-label">views</div>
+                </div>
               </div>
-              <div className="metric answered">
-                <div className="metric-value">{q.answers}</div>
-                <div className="metric-label">answers</div>
-              </div>
-              <div className="metric">
-                <div className="metric-value">{q.views}</div>
-                <div className="metric-label">views</div>
-              </div>
-            </div>
 
-            <div className="content">
-              <h3 className="question-title">{q.title}</h3>
-              <p className="question-desc">{q.description}</p>
-              <div className="meta-row">
-                <div className="tags">
-                  {q.tags.map((t) => (
-                    <span key={t} className="tag">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <div className="asked-by">
-                  asked {q.askedAt} by{' '}
-                  <span className="author">{q.author}</span>
+              <div className="content">
+                <h3 className="question-title">{q.title}</h3>
+                <p className="question-desc">{q.description}</p>
+                <div className="meta-row">
+                  <div className="tags">
+                    {q.tags.map((t) => (
+                      <span key={t} className="tag">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="asked-by">
+                    asked {q.askedAt} by{' '}
+                    <span className="author">{q.author}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
 
         {filtered.length === 0 && (

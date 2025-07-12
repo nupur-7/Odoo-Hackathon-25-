@@ -1,3 +1,26 @@
+.detail-container {}
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin: 0;
+}
+
+.icon {
+  font-size: 20px;
+  margin-left: 12px;
+  cursor: pointer;
+  display: inline-block;
+}
+
 .detail-container {
   max-width: 800px;
   margin: 0 auto;
