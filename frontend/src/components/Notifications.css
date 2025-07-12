@@ -1,0 +1,50 @@
+.notif-wrapper {
+  position: fixed;
+  top: 16px;
+  right: 24px;
+  z-index: 1000;
+}
+
+.bell-icon {
+  font-size: 24px;
+  cursor: pointer;
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  padding: 2px 6px;
+}
+
+.notif-dropdown {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  width: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+}
+
+.notif-dropdown h4 {
+  margin-top: 0;
+  font-size: 16px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 6px;
+}
+
+.notif-dropdown ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 8px;
+}

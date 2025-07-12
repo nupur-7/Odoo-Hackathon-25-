@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import Notifications from './Notifications';
 import { useParams } from 'react-router-dom';
 import './QuestionDetail.css';
 
@@ -114,7 +115,7 @@ export default function QuestionDetail() {
   return (
     <div className="detail-container">
       {/* Header/Navbar */}
-      <header className="header">
+      <header className="header" style={{ display: 'flex', alignItems: 'center', gap: '16px', position: 'sticky', top: 0, background: '#fff', zIndex: 10 }}>
         <h1 className="logo">StackIt</h1>
         <input
           type="text"
@@ -123,8 +124,12 @@ export default function QuestionDetail() {
           style={{ marginLeft: '20px', marginRight: '20px' }}
         />
         <button className="ask-btn">Ask Question</button>
-        <span className="icon">🔔</span>
-        <span className="icon">👤</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <Notifications userId={1} />
+          </div>
+          <span className="icon" style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#4B2991', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5em' }}>👤</span>
+        </div>
       </header>
 
       <nav className="breadcrumb">Home &gt; {question.title.slice(0, 25)}...</nav>

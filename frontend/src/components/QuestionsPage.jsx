@@ -1,6 +1,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import Notifications from './Notifications';
 import './QuestionsPage.css';
 
 const DUMMY_QUESTIONS = [
@@ -94,7 +95,7 @@ export default function QuestionsPage() {
   return (
     <div className="page">
       {/* Header */}
-      <header className="header">
+      <header className="header" style={{ display: 'flex', alignItems: 'center', gap: '16px', position: 'sticky', top: 0, background: '#fff', zIndex: 10 }}>
         <h1 className="logo">StackIt</h1>
 
         <input
@@ -106,13 +107,15 @@ export default function QuestionsPage() {
         />
 
         <button className="ask-btn">Ask Question</button>
-        <span className="icon">🔔</span>
-        <span className="icon" style={{marginLeft: '16px', display: 'inline-flex', alignItems: 'center'}}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="8" r="4" fill="#4B2991"/>
-            <path d="M4 20c0-2.761 3.582-5 8-5s8 2.239 8 5" fill="#4B2991"/>
-          </svg>
-        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <Notifications userId={1} />
+          <span className="icon" style={{ fontSize: '1.7em', verticalAlign: 'middle' }}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="4" fill="#4B2991"/>
+              <path d="M4 20c0-2.761 3.582-5 8-5s8 2.239 8 5" fill="#4B2991"/>
+            </svg>
+          </span>
+        </div>
       </header>
 
       {/* Tabs */}
