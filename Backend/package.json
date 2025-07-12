@@ -1,0 +1,28 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/nupur-7/Odoo-Hackathon-25-#readme",
+  "bugs": {
+    "url": "https://github.com/nupur-7/Odoo-Hackathon-25-/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nupur-7/Odoo-Hackathon-25-.git"
+  },
+  "license": "ISC",
+  "author": "khushi khattar",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.3"
+  }
+}
